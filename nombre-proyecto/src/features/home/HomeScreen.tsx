@@ -9,7 +9,7 @@ export default function HomeScreen() {
     title: `Elemento ${i + 1}`,
   }));
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flexDirection: "row", padding: 9, paddingBottom: 10 }}>
         <View style={{ flex: 1 }}>
           <Text style={{ fontSize: 22.67, fontWeight: "bold" }}>
@@ -23,7 +23,19 @@ export default function HomeScreen() {
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={({ item }) => (
+          <View
+            style={{
+              marginHorizontal: 8,
+              marginVertical: 8,
+              padding: 16,
+              backgroundColor: "#f0f0f0",
+              borderRadius: 8,
+            }}
+          >
+            <Text>{item.title}</Text>
+          </View>
+        )}
       />
     </SafeAreaView>
   );
