@@ -5,10 +5,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-      <View>
-        <Text>Header</Text>
-        <Text>Contenido</Text>
+      <View style={{ flexDirection: "row" }}>
+        <View style={{ flex: 1 }}>
+          <Text>Bienvenido</Text>
+          <Text>Uninorte</Text>
+        </View>
+        <Text>Icono2</Text>
       </View>
+
+      <Text>Contenido</Text>
     </SafeAreaView>
   );
 }

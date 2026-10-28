@@ -1,5 +1,9 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from "@react-navigation/native";
 import Constants, { ExecutionEnvironment } from "expo-constants";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,15 +11,14 @@ import React, { useEffect, useState } from "react";
 import { useColorScheme } from "react-native";
 import { PaperProvider } from "react-native-paper";
 
-
 import { DIProvider } from "./src/core/di/DIProvider";
 import { NotesProvider } from "./src/features/notes/presentation/context/NotesContext";
 import RootNavigator from "./src/navigation/RootNavigator";
 import { darkTheme, lightTheme } from "./src/theme/theme";
 
-
 // Expo Go doesn't support customizing the splash screen; only apply options in development/production builds.
-const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+const isExpoGo =
+  Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
 
 // Keep the native splash screen visible until the app has finished loading.
 SplashScreen.preventAutoHideAsync();
@@ -26,7 +29,7 @@ if (!isExpoGo) {
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const scheme = useColorScheme();
-  const theme = scheme === "dark" ? darkTheme : lightTheme;
+  const theme = lightTheme;
 
   useEffect(() => {
     async function prepare() {
